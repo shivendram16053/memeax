@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useAccount, useWalletClient } from "wagmi";
-import MEMEAXAbi from "../contracts/artifacts/contracts/Lock.sol/MEMEAX.json";
+import MEMEAXAbi from "@/utils/MemeX.json";
 import { BrowserProvider, Contract } from "ethers";
 import { PinataSDK } from "pinata-web3";
 
