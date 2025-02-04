@@ -11,7 +11,6 @@ const LandingPage = () => {
       {/* Meme Image */}
       <div className="w-4/12 flex flex-col justify-center items-center mb-6 md:mb-0">
         <img src={landingPage.src} alt="Meme Image" className="rounded-3xl shadow-lg shadow-black w-3/4 md:w-full" />
-        <p className="pt-10 text-black">create an image of a cute bull jumping in bull run market</p>
       </div>
 
       {/* Text Content */}

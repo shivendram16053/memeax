@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -9,6 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+typechain-types
 
 # testing
 /coverage
@@ -39,3 +40,33 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Smart contract artifacts
+artifacts/
+cache/
+
+# Coverage
+coverage/
+
+# Miscellaneous
+.idea/
+.vscode/
+*.swp
