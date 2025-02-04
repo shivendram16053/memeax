@@ -11,6 +11,9 @@ node_modules
 !.yarn/versions
 typechain-types
 
+
+ignition
+
 # testing
 /coverage
 
