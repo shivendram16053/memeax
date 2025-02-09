@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fal-ai/client": "^1.2.3",
     "@openzeppelin/contracts": "^5.2.0",
     "@tanstack/react-query": "^5.66.0",
     "@walletconnect/ethereum-provider": "^2.18.0",
