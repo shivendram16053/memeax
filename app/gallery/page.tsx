@@ -31,7 +31,7 @@ const GalleryPage = () => {
         // Fetch details for each NFT
         const nftDetails = await Promise.all(
           tokenIds.map(async (tokenId) => {
-            const [title, description, metadataURI, creator] =
+            const [title, description, metadataURI, creator,owner] =
               await contract.getNFTDetails(tokenId);
 
             try {
@@ -41,11 +41,12 @@ const GalleryPage = () => {
               const metadata = await metadataRes.json();
               return {
                 tokenId,
-                contract:CA,
+                contract: CA,
                 title: metadata.name || title,
                 description: metadata.description || description,
                 image: metadata.image || "", // Ensure image exists
                 creator,
+                owner,
               };
             } catch (err) {
               console.error(
@@ -78,10 +79,25 @@ const GalleryPage = () => {
     setSelectedNFT(null);
   };
 
+  if (!address)
+    return (
+      <div className="flex flex-col items-center font-[var(--font-geist-sans)] min-h-screen">
+        <Navbar/>
+      <div className="p-16 mt-[-30px] flex flex-col items-center w-full">
+        <h1 className="text-black text-3xl font-bold mb-8">NFT Gallery</h1>
+
+        <div className="flex items-center gap-3  text-black px-6 py-3 rounded-xl  font-semibold">
+          <span>Connect Your Wallet</span>
+        </div>
+      </div>
+    </div>
+    );
+  
+
   return (
     <div className="flex flex-col items-center font-[var(--font-geist-sans)]">
       <Navbar />
-      <div className="p-14 flex flex-col items-start w-full">
+      <div className="p-16 mt-[-30px] flex flex-col items-start w-full">
         <h1 className="text-black text-3xl font-bold mb-8">NFT Gallery</h1>
 
         {loading ? (
@@ -93,7 +109,7 @@ const GalleryPage = () => {
             {nfts.map((nft) => (
               <div
                 key={nft.tokenId}
-                className="border p-4 rounded-lg shadow-md w-auto bg-[#FAEED4] cursor-pointer"
+                className="border-black  p-4 rounded-lg shadow-[-4px_4px_0px_#171717]  w-auto bg-[#FAEED4] cursor-pointer"
                 onClick={() => openModal(nft)}
               >
                 <img
@@ -123,7 +139,11 @@ const GalleryPage = () => {
 
       {/* Modal for NFT Details */}
       {selectedNFT && (
-        <NFTmodal closeModal={closeModal} selectedNFT={selectedNFT} owner={false} />
+        <NFTmodal
+          closeModal={closeModal}
+          selectedNFT={selectedNFT}
+          owner={false}
+        />
       )}
     </div>
   );

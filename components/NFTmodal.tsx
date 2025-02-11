@@ -64,7 +64,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ closeModal, selectedNFT ,owner }) =
               </a>
             </p>
             <p className="text-gray-600">
-              <strong>Owner: </strong> 
+              <strong>Created By: </strong> 
               <a
                 href={`https://testnet.snowtrace.io/address/${selectedNFT.creator}`}
                 target="_blank"
