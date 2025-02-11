@@ -31,7 +31,7 @@ const GalleryPage = () => {
         // Fetch details for each NFT
         const nftDetails = await Promise.all(
           tokenIds.map(async (tokenId) => {
-            const [title, description, metadataURI, creator,owner] =
+            const [title, description, metadataURI, creator, owner] =
               await contract.getNFTDetails(tokenId);
 
             try {
@@ -82,17 +82,16 @@ const GalleryPage = () => {
   if (!address)
     return (
       <div className="flex flex-col items-center font-[var(--font-geist-sans)] min-h-screen">
-        <Navbar/>
-      <div className="p-16 mt-[-30px] flex flex-col items-center w-full">
-        <h1 className="text-black text-3xl font-bold mb-8">NFT Gallery</h1>
+        <Navbar />
+        <div className="p-16 mt-[-30px] flex flex-col items-center w-full">
+          <h1 className="text-black text-3xl font-bold mb-8">NFT Gallery</h1>
 
-        <div className="flex items-center gap-3  text-black px-6 py-3 rounded-xl  font-semibold">
-          <span>Connect Your Wallet</span>
+          <div className="flex items-center gap-3  text-black px-6 py-3 rounded-xl  font-semibold">
+            <span>Connect Your Wallet</span>
+          </div>
         </div>
       </div>
-    </div>
     );
-  
 
   return (
     <div className="flex flex-col items-center font-[var(--font-geist-sans)]">
@@ -101,7 +100,9 @@ const GalleryPage = () => {
         <h1 className="text-black text-3xl font-bold mb-8">NFT Gallery</h1>
 
         {loading ? (
-          <p className="text-xl text-gray-600">Loading NFTs...</p>
+          <div className="flex justify-center items-center h-full">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-black"></div>
+          </div>
         ) : nfts.length === 0 ? (
           <p className="text-xl text-gray-600">No NFTs found.</p>
         ) : (
