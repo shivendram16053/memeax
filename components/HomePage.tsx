@@ -95,13 +95,14 @@ const HomePage = () => {
   return (
     <div className="flex flex-col items-center w-full m-20 text-black">
       <div className="relative p-5 w-[600px]">
-        <input
-          type="text"
-          placeholder="Describe your meme idea..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="bg-white w-full border-2 border-black rounded-full py-3 px-5 text-lg font-medium pr-24"
-        />
+      <input
+  type="text"
+  placeholder="Describe your meme idea..."
+  value={input}
+  onChange={(e) => setInput(e.target.value)}
+  className="bg-white w-full border-2 border-black rounded-full py-3 px-5 text-lg font-medium pr-32"
+/>
+
         <button onClick={generateMeme} className="absolute right-8 top-1/2 transform -translate-y-1/2 bg-black text-white font-bold px-5 py-2 rounded-full hover:bg-gray-800 transition duration-300">
           Generate
         </button>
